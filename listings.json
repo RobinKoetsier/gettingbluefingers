@@ -1,30 +1,14 @@
 [
   {
     "listing": "/work.html",
-    "items": [
-      "/Stuff/Twitter/Twitter.html",
-      "/Stuff/Podcasts/Podcasts.html"
-    ]
+    "items": []
   },
   {
     "listing": "/index.html",
-    "items": [
-      "/tutorials/RadarPizzaChart/index.html",
-      "/posts/2021-03-03_expected-points/index.html",
-      "/posts/2021-02-04_Giakoumakis/index.html"
-    ]
-  },
-  {
-    "listing": "/tutorials.html",
-    "items": [
-      "/tutorials/RadarPizzaChart/index.html"
-    ]
+    "items": []
   },
   {
     "listing": "/posts.html",
-    "items": [
-      "/posts/2021-03-03_expected-points/index.html",
-      "/posts/2021-02-04_Giakoumakis/index.html"
-    ]
+    "items": []
   }
 ]
