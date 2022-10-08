@@ -18,6 +18,10 @@ $font-family: "League Spartan", sans-serif;
   background-size: 2em;
   background-position: 0.5em 0.5em;
 }
+.imageContainer > img:click {
+  width: 500px;
+  height: 200px;
+}
 
 .pull {
   padding: 0.5em 0.5em 0em 3em;

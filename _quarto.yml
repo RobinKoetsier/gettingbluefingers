@@ -1,7 +1,13 @@
 project:
   type: website
-  output-dir: docs
+  
+  #output-dir: docs
+execute:
+  freeze: true
 website:
+  google-analytics: "UA-175572271-3"
+  #twitter-card: true
+  favicon: images/favicon.ico
   title: "Getting Blue Fingers"
   page-navigation: true
   
@@ -9,9 +15,10 @@ website:
   repo-url: https://github.com/robinkoetsier
   #repo-actions: [edit, issue]
   sidebar:
+    
     #logo: "images/Boca.jpg"
-    logo: "images/Bocahex.png"
-    logo-alt: "Me at Boca"
+    #logo: "images/Bocahex.png"
+    #logo-alt: "Me at Boca"
     tools: 
       
       - icon: spotify
@@ -27,21 +34,27 @@ website:
         href: https://twitter.com/EredivisiePlots
         text: "Eredivisieplots Twitter"    
     pinned: true
-    style: "docked"
+    style: "floating"
     search: true
-    collapse-level: 1
+    collapse-level: 2
+    title: ""
     align: center
     contents:
-      - about.qmd
-      - work.qmd
       - text: "Posts"
         href: posts.qmd
+      - text: "Tutorials"
+        href: tutorials.qmd
+      - text: "Other stuff I do"
+        href: stuff.qmd
       - section: "Eredivisie stats"  
         contents: 
         - text: "xRank"
-          href: Other_pages/rank.Rmd
+          href: rank.Rmd
         - text: "Shots"
-          href: Other_pages/Shots.Qmd
+          href: Shots.Qmd
+        - text: "Passes"
+          href: passes.Qmd
+      - about.qmd
       - icon: github
         href: https://github.com/
       - icon: twitter
@@ -50,7 +63,8 @@ format:
   html:
     theme:
       light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
-      dark: [cosmo, theme-dark.scss]
+      #dark: [cosmo, theme-dark.scss]
+      dark: solar
     code-copy: true
     code-overflow: wrap
     toc: false
