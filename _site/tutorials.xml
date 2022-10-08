@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Getting Blue Fingers</title>
-<link>https://www.robinkoetsier.nl/tutorials.html</link>
-<atom:link href="https://www.robinkoetsier.nl/tutorials.xml" rel="self" type="application/rss+xml"/>
+<link>https://www.gettingbluefingers.com/tutorials.html</link>
+<atom:link href="https://www.gettingbluefingers.com/tutorials.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.1.251</generator>
 <lastBuildDate>Sun, 09 Oct 2022 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Shots on target</title>
-  <link>https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/index.html</link>
+  <link>https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/index.html</link>
   <description><![CDATA[ 
 
 
@@ -62,7 +62,7 @@
 <span id="cb6-3">  <span class="fu" style="color: #4758AB;">stat_bin_2d</span>(<span class="fu" style="color: #4758AB;">aes</span>(on_goal_shot<span class="sc" style="color: #5E5E5E;">$</span>x,on_goal_shot<span class="sc" style="color: #5E5E5E;">$</span>y,<span class="at" style="color: #657422;">fill=</span>..count..),</span>
 <span id="cb6-4">              <span class="at" style="color: #657422;">binwidth =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.5</span>, (<span class="fl" style="color: #AD0000;">0.6367725</span><span class="sc" style="color: #5E5E5E;">/</span><span class="dv" style="color: #AD0000;">3</span>)),                     </span>
 <span id="cb6-5">              <span class="at" style="color: #657422;">drop=</span><span class="cn" style="color: #8f5902;">FALSE</span>) </span></code></pre></div>
-<p><img src="https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/img/0.png" class="img-fluid"></p>
+<p><img src="https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/img/0.png" class="img-fluid"></p>
 <p>Looks horrible, but the idea is clear. The most shots go to the area on the bottom, just right of the middle. To sort this by team, we can use a simple <code>facet_wrap</code> as you can see below.</p>
 <div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">shots_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
 <span id="cb7-2">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(on_goal_shot<span class="sc" style="color: #5E5E5E;">$</span>x,on_goal_shot<span class="sc" style="color: #5E5E5E;">$</span>y))<span class="sc" style="color: #5E5E5E;">+</span></span>
@@ -70,7 +70,7 @@
 <span id="cb7-4">              <span class="at" style="color: #657422;">binwidth =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.5</span>, (<span class="fl" style="color: #AD0000;">0.6367725</span><span class="sc" style="color: #5E5E5E;">/</span><span class="dv" style="color: #AD0000;">3</span>)),</span>
 <span id="cb7-5">              <span class="at" style="color: #657422;">drop=</span><span class="cn" style="color: #8f5902;">FALSE</span>)<span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb7-6">  <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;">~</span>team_name)</span></code></pre></div>
-<p><img src="https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/img/1.png" class="img-fluid"></p>
+<p><img src="https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/img/1.png" class="img-fluid"></p>
 <p>Now we’re getting somewhere! I really prefer to see how the areas correspond with each other per team though. So I’m going to add some code to print the percentage of shots in each area per team. This prints a text with the percentage in every area and the <code>..PANEL..</code> parts make sure it is the percentage per team and not per competition.</p>
 <div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">shots_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
 <span id="cb8-2">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(on_goal_shot<span class="sc" style="color: #5E5E5E;">$</span>x,on_goal_shot<span class="sc" style="color: #5E5E5E;">$</span>y))<span class="sc" style="color: #5E5E5E;">+</span></span>
@@ -82,7 +82,7 @@
 <span id="cb8-8">    <span class="at" style="color: #657422;">label=</span><span class="fu" style="color: #4758AB;">paste0</span>((<span class="dv" style="color: #AD0000;">100</span><span class="sc" style="color: #5E5E5E;">*</span>(<span class="fu" style="color: #4758AB;">round</span>((..count..)<span class="sc" style="color: #5E5E5E;">/</span><span class="fu" style="color: #4758AB;">tapply</span>(..count..,..PANEL..,sum)[..PANEL..],<span class="dv" style="color: #AD0000;">2</span>))),<span class="st" style="color: #20794D;">"%"</span>)),</span>
 <span id="cb8-9">  <span class="at" style="color: #657422;">binwidth =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="fl" style="color: #AD0000;">0.5</span>, (<span class="fl" style="color: #AD0000;">0.6367725</span><span class="sc" style="color: #5E5E5E;">/</span><span class="dv" style="color: #AD0000;">3</span>)))<span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb8-10">  <span class="fu" style="color: #4758AB;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;">~</span>team_name)</span></code></pre></div>
-<center><a href="img/1-1.png" target="_blank"><img src="https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/img/1-1.png" height="300" width="600" class="imageContainer"></a></center>
+<center><a href="img/1-1.png" target="_blank"><img src="https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/img/1-1.png" height="300" width="600" class="imageContainer"></a></center>
 <p>When saved in the right ratio, it already looks okay(ish).</p>
 <p>The next step is to make is look way better than it does.</p>
 </section>
@@ -132,7 +132,7 @@
 <span id="cb9-34">        <span class="at" style="color: #657422;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">family =</span> <span class="st" style="color: #20794D;">"Spartan-Bold"</span>, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"#69C5D2"</span>,<span class="at" style="color: #657422;">size=</span><span class="dv" style="color: #AD0000;">14</span>),</span>
 <span id="cb9-35">        <span class="at" style="color: #657422;">plot.caption =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">family =</span> <span class="st" style="color: #20794D;">"Spartan-Light"</span>, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"#69C5D2"</span>,<span class="at" style="color: #657422;">size=</span><span class="dv" style="color: #AD0000;">10</span>))</span>
 <span id="cb9-36">  </span></code></pre></div>
-<center><a href="img/2.png" target="_blank"><img src="https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/img/2.png" height="300" width="600" class="imageContainer"></a></center>
+<center><a href="img/2.png" target="_blank"><img src="https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/img/2.png" height="300" width="600" class="imageContainer"></a></center>
 <p>Well, this looks nice. At first I was really happy with this plot, but it bothers me that the 18% in PSV’s plot is more highlighted than the 21% for NEC Nijmegen. This is because the colours are the absolute values and the labels are per club. I looked for a way to change this and still using <code>facet_wrap()</code> but couldn’t find a way. I do however found another way. It’s a bit harder, but I will guide you through it.</p>
 </section>
 <section id="a-better-way" class="level3">
@@ -197,7 +197,7 @@
 <span id="cb12-10">        <span class="at" style="color: #657422;">plot.title =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">family =</span> <span class="st" style="color: #20794D;">"Spartan-Bold"</span>, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"#69C5D2"</span>,<span class="at" style="color: #657422;">size=</span><span class="dv" style="color: #AD0000;">18</span>),</span>
 <span id="cb12-11">        <span class="at" style="color: #657422;">plot.subtitle =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">family =</span> <span class="st" style="color: #20794D;">"Spartan-Bold"</span>, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"#69C5D2"</span>,<span class="at" style="color: #657422;">size=</span><span class="dv" style="color: #AD0000;">14</span>),</span>
 <span id="cb12-12">        <span class="at" style="color: #657422;">plot.caption =</span> <span class="fu" style="color: #4758AB;">element_text</span>(<span class="at" style="color: #657422;">family =</span> <span class="st" style="color: #20794D;">"Spartan-Light"</span>, <span class="at" style="color: #657422;">colour=</span><span class="st" style="color: #20794D;">"#69C5D2"</span>,<span class="at" style="color: #657422;">size=</span><span class="dv" style="color: #AD0000;">10</span>)))</span></code></pre></div>
-<center><a href="img/3.png" target="_blank"><img src="https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/img/3.png" height="300" width="600" class="imageContainer"></a></center>
+<center><a href="img/3.png" target="_blank"><img src="https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/img/3.png" height="300" width="600" class="imageContainer"></a></center>
 <p>And as you can see, now the area with the most shots per team is highlighted. It took some extra step, but it was worth it.</p>
 <p>If you have any questions or want to see a tutorial about a viz you saw online, <a href="%22https://www.twitter.com/RobinWilhelmus">send me a message on Twitter.</a> And tag me if you make one in your own style and post it to Twitter!</p>
 
@@ -205,13 +205,13 @@
 </section>
 
  ]]></description>
-  <guid>https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/index.html</guid>
+  <guid>https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/index.html</guid>
   <pubDate>Sun, 09 Oct 2022 22:00:00 GMT</pubDate>
-  <media:content url="https://www.robinkoetsier.nl/tutorials/2022-10-10_shot-areas/img/3.png" medium="image" type="image/png" height="63" width="144"/>
+  <media:content url="https://www.gettingbluefingers.com/tutorials/2022-10-10_shot-areas/img/3.png" medium="image" type="image/png" height="63" width="144"/>
 </item>
 <item>
   <title>Percentile Radars/Pizza’s</title>
-  <link>https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/index.html</link>
+  <link>https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/index.html</link>
   <description><![CDATA[ 
 
 
@@ -220,7 +220,7 @@
 <h3 class="anchored" data-anchor-id="intro">Intro</h3>
 <p>As I really like the radars/pizza charts from football slices (RIP) and the mplsoccer package for Python, I was thinking about making them in R with the help of the <a href="https://github.com/JaseZiv/worldfootballR">worldfootballR package.</a> When some people contacted me with the question if I knew how to do it, I decided to make a tutorial for it. If you don’t know what I’m talking about, this is the radar from mplsoccer.</p>
 <p align="center">
-<a href="https://mplsoccer.readthedocs.io/en/latest/_images/sphx_glr_plot_pizza_colorful_001.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/mplsoccer.readthedocs.io/en/latest/_images/sphx_glr_plot_pizza_colorful_001.png" style="width:400px"> </a>
+<a href="https://mplsoccer.readthedocs.io/en/latest/_images/sphx_glr_plot_pizza_colorful_001.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/mplsoccer.readthedocs.io/en/latest/_images/sphx_glr_plot_pizza_colorful_001.png" style="width:400px"> </a>
 </p>
 <p>The Python package makes you enter te values yourself. For some leagues (Men’s Big 5 Leagues and European Competition, Major League Soccer, Women’s Super League) FBref has so called scouting reports with data from StatsBomb. These scouting reports do not only have the absolute numbers for several metrics, but also the percentiles. The worldfootballR package let’s you scrape them really easy. Let’s start by setting up our environment. If needed, install the packages first.</p>
 </section>
@@ -331,7 +331,7 @@ See all statistics
 <span id="cb8-23">        <span class="at" style="color: #657422;">panel.grid.major =</span> <span class="fu" style="color: #4758AB;">element_blank</span>(), </span>
 <span id="cb8-24">        <span class="at" style="color: #657422;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;">element_blank</span>()) </span></code></pre></div>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/first-1.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/first-1.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/first-1.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/first-1.png" style="width:400px"> </a>
 </p>
 <p>Doesn’t look half bad, but the labels are horrible. Besides that we should add some extra information about the player. The labels need to be rotated so they look better. We can do this by hand, but if we change the number of metrics we’re using we need to do it all over again. So let’s just make a calculation that we can run everytime we make a new chart. I chose to display the ‘Per 90’ stats insteadd of the percentiles. You can change this in geom_label().</p>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">temp <span class="ot" style="color: #003B4F;">&lt;-</span> (<span class="dv" style="color: #AD0000;">360</span><span class="sc" style="color: #5E5E5E;">/</span>(<span class="fu" style="color: #4758AB;">nrow</span>(df_selected))<span class="sc" style="color: #5E5E5E;">/</span><span class="dv" style="color: #AD0000;">2</span>)                             <span class="co" style="color: #5E5E5E;">#find the difference in angle between to labels and divide by two.</span></span>
@@ -367,11 +367,11 @@ See all statistics
 <span id="cb11-24">        <span class="at" style="color: #657422;">panel.grid.major =</span> <span class="fu" style="color: #4758AB;">element_blank</span>(), </span>
 <span id="cb11-25">        <span class="at" style="color: #657422;">panel.grid.minor =</span> <span class="fu" style="color: #4758AB;">element_blank</span>()) </span></code></pre></div>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/second-1.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/second-1.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/second-1.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/second-1.png" style="width:400px"> </a>
 </p>
 <p>That looks much better! From here you can change everything you want. I’m going to add a subtitle, and make some theme adjustments. Adding a picture is something I will add to this tutorial in the future.</p>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/third-2.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/third-2.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/third-2.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/third-2.png" style="width:400px"> </a>
 </p>
 <p>{::options parse_block_html=“true” /}</p>
 <details>
@@ -426,7 +426,7 @@ Not too hard to do, right?
 <section id="the-athletic-tom-worville" class="level4">
 <h4 class="anchored" data-anchor-id="the-athletic-tom-worville">The Athletic/ Tom Worville</h4>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/athe1.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/athe1.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/athe1.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/athe1.png" style="width:400px"> </a>
 </p>
 <p>{::options parse_block_html=“true” /}</p>
 <details>
@@ -475,7 +475,7 @@ The code
 <section id="football-slices" class="level4">
 <h4 class="anchored" data-anchor-id="football-slices">Football Slices</h4>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/FooSlice.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/FooSlice.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/FooSlice.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/FooSlice.png" style="width:400px"> </a>
 </p>
 <p>{::options parse_block_html=“true” /}</p>
 <details>
@@ -523,7 +523,7 @@ The code
 <section id="one-with-no-background" class="level4">
 <h4 class="anchored" data-anchor-id="one-with-no-background">One with no background</h4>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/blank.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/blank.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/blank.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/blank.png" style="width:400px"> </a>
 </p>
 <p>{::options parse_block_html=“true” /}</p>
 <details>
@@ -572,7 +572,7 @@ The code
 <section id="one-with-other-labels-and-background-colour" class="level4">
 <h4 class="anchored" data-anchor-id="one-with-other-labels-and-background-colour">One with other labels and background colour</h4>
 <p align="center">
-<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/label.png"> <img src="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/label.png" style="width:400px"> </a>
+<a href="https://raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/label.png"> <img src="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/https:/raw.githubusercontent.com/RobinKoetsier/robinkoetsier.github.io/master/assets/img/tutorials/pizza/label.png" style="width:400px"> </a>
 </p>
 <p>{::options parse_block_html=“true” /}</p>
 <details>
@@ -642,9 +642,9 @@ The code
 </section>
 
  ]]></description>
-  <guid>https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/index.html</guid>
+  <guid>https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/index.html</guid>
   <pubDate>Mon, 26 Apr 2021 22:00:00 GMT</pubDate>
-  <media:content url="https://www.robinkoetsier.nl/tutorials/RadarPizzaChart/img/1.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://www.gettingbluefingers.com/tutorials/RadarPizzaChart/img/1.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 </channel>
 </rss>
