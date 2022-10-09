@@ -1,14 +1,14 @@
 ---
 title: "Shots on target"
 format:
-  html:
-    code-fold: true
-    code-overflow: scroll
-    theme: cosmo
-    toc: true
+    html:
+      code-fold: true
+      code-overflow: scroll
+      theme: cosmo
+      toc: true
 date: 2022-10-10
 description: "Visualize where teams shoot on goal!"
-image: img/3.png
+image: "img/3.png"
 ---
 
 ### Intro
@@ -48,14 +48,14 @@ Now we can feed the match id's from this data frame to the next function. It wil
 match_details <- fotmob_get_match_details(league_matches$id)
 ```
 
-In this data frame, there is a column called 'shots'. This has all the shots from that match in it with all the relevant data. To make live easier, you can unnest that column so you have a bigger data frame with every shot in there.
+In this data frame, there is a column called 'shots'. This has all the shots from that match in it with all the relevant data. To make live easier, you can unnest that column so you have a bigger data frame with every shot in there. 
 
 ```{.r}
 shots_temp <- match_details %>%
   unnest(shots)
 ```
 
-In the next step we are going to filter the data so we only have the shots on target that are not blocked. I do this by looking at the 'expected_goals_on_target' column. In the same pipe we are adding the name of the team that takes the shot. I recommend this way over an ifelse() statement as it is easier to add more conditions in the future.
+In the next step we are going to filter the data so we only have the shots on target that are not blocked. I do this by looking at the 'expected_goals_on_target' column. In the same pipe we are adding the name of the team that takes the shot. I recommend this way over an ifelse() statement as it is easier to add more conditions in the future. If you want, you can filter the data so it only has shots from open play or just no penalties.
 
 ```{.r}
 shots_df <- shots_temp %>%
@@ -111,7 +111,7 @@ shots_df %>%
 ```
 
 ```{=html}
-<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="300" width="600" class="imageContainer"></a></center>
+<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="auto" width="auto" class="imageContainer"></a></center>
 ```
 
 When saved in the right ratio, it already looks okay(ish).

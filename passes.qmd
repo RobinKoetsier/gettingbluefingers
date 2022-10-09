@@ -1,5 +1,5 @@
 ---
-title: "Passes"
+title: "Passing"
 format:
   html:
     theme: cosmo
@@ -201,6 +201,8 @@ div(class = "standings",
 
 
 ```
+
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'X8X05VG5Z');kofiwidget2.draw();</script> 
 
 ```{r,echo=FALSE}
 tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mono&display=fallback", rel = "stylesheet")

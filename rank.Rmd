@@ -1,4 +1,5 @@
 ---
+title: "xRank"
 output:
   html_document: default
   pdf_document: default
@@ -246,17 +247,9 @@ div(class = "standings",
   "Based on simulating every shot in every match"
 )
 
-xRank %>%
-  download_this(
-    output_name = "xRank_Eredivisie",
-    output_extension = ".xlsx",
-    button_label = "Download table as xlsx",
-    button_type = "default",
-    has_icon = TRUE,
-    icon = "fa fa-save"
-  )
-
 ```
+
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'X8X05VG5Z');kofiwidget2.draw();</script> 
 
 ------------------------------------------------------------------------
 

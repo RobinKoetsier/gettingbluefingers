@@ -298,7 +298,7 @@ ga('send', {
 <p>In this data frame, there is a column called ‘shots’. This has all the shots from that match in it with all the relevant data. To make live easier, you can unnest that column so you have a bigger data frame with every shot in there.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>shots_temp <span class="ot">&lt;-</span> match_details <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(shots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In the next step we are going to filter the data so we only have the shots on target that are not blocked. I do this by looking at the ‘expected_goals_on_target’ column. In the same pipe we are adding the name of the team that takes the shot. I recommend this way over an ifelse() statement as it is easier to add more conditions in the future.</p>
+<p>In the next step we are going to filter the data so we only have the shots on target that are not blocked. I do this by looking at the ‘expected_goals_on_target’ column. In the same pipe we are adding the name of the team that takes the shot. I recommend this way over an ifelse() statement as it is easier to add more conditions in the future. If you want, you can filter the data so it only has shots from open play or just no penalties.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shots_df <span class="ot">&lt;-</span> shots_temp <span class="sc">%&gt;%</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">expected_goals_on_target =</span> <span class="fu">replace_na</span>(expected_goals_on_target,<span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(expected_goals_on_target<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
@@ -336,7 +336,7 @@ ga('send', {
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">label=</span><span class="fu">paste0</span>((<span class="dv">100</span><span class="sc">*</span>(<span class="fu">round</span>((..count..)<span class="sc">/</span><span class="fu">tapply</span>(..count..,..PANEL..,sum)[..PANEL..],<span class="dv">2</span>))),<span class="st">"%"</span>)),</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, (<span class="fl">0.6367725</span><span class="sc">/</span><span class="dv">3</span>)))<span class="sc">+</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>team_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="300" width="600" class="imageContainer"></a></center>
+<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="auto" width="auto" class="imageContainer"></a></center>
 <p>When saved in the right ratio, it already looks okay(ish).</p>
 <p>The next step is to make is look way better than it does.</p>
 </section>
@@ -459,6 +459,18 @@ ga('send', {
 </section>
 
 </main> <!-- /main -->
+<div>
+<hr>
+
+<h3> Support my work with a coffee </h3>
+
+<script type="text/javascript" src="https://storage.ko-fi.com/cdn/widget/Widget_2.js"></script><script type="text/javascript">kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'X8X05VG5Z');kofiwidget2.draw();</script> 
+<h3> Share </h3>
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-hashtags="#rstats" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<hr>
+</div>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
