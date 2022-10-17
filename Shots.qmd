@@ -1,10 +1,12 @@
 ---
+title: "Shooting"
 format:
   html:
     #theme: cosmo
     toc: false
 page-layout: full
 title-block-banner: false
+freeze: false
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -209,17 +211,9 @@ div(class = "standings",
   tbl
 )
 
-players %>%
-  download_this(
-    output_name = "players_goals_Eredivisie",
-    output_extension = ".xlsx",
-    button_label = "Download table as xlsx",
-    button_type = "default",
-    has_icon = TRUE,
-    icon = "fa fa-save"
-  )
-
 ```
+
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'X8X05VG5Z');kofiwidget2.draw();</script> 
 
 ```{r,echo=FALSE}
 tags$link(href = "https://fonts.googleapis.com/css?family=Karla:400,700|Fira+Mono&display=fallback", rel = "stylesheet")

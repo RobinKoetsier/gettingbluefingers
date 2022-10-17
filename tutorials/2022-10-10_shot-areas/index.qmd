@@ -111,7 +111,7 @@ shots_df %>%
 ```
 
 ```{=html}
-<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="auto" width="auto" class="imageContainer"></a></center>
+<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="150" width="auto" class="imageContainer"></a></center>
 ```
 
 When saved in the right ratio, it already looks okay(ish).
@@ -191,12 +191,12 @@ df %>%
                 drop=FALSE)+
     stat_bin_2d(geom = "text", size=3,colour="white",
                 aes(
-                  label=paste0((100*(round((..count..)/tapply(..count..,..PANEL..,sum)[..PANEL..],2))),"%")
+                  label=paste0((100*(round(..count../sum(..count..),2))),"%")
                   
                 ), 
                 
                 binwidth = c(0.5, (0.6367725/3)))+
-    #facet_wrap(~team_name)+
+    
     geom_segment(aes(x=0,xend=0,y=0,yend=0.66534392-0.028571429),colour="white")+ #drawing a goal
     geom_segment(aes(x=0-0.028571429,xend=0-0.028571429,y=0,yend=0.66534392),colour="white")+ 
     geom_segment(aes(x=2,xend=2,y=0,yend=0.66534392-0.028571429),colour="white")+
@@ -223,7 +223,8 @@ df %>%
 }
 ```
 
-So in the title of the plot, I put the team name with <code>glue::glue()</code>. You may have to install this package. Of course you can add more stuff to the plot, like the team loge or the number of shots. Go wild!
+So in the title of the plot, I put the team name with <code>glue::glue()</code>. You may have to install this package. Of course you can add more stuff to the plot, like the team logo or the number of shots. Go wild!
+I changed the label in <code>stat_bin_2d</code> as well, as we don't have to calculate the percentages per panel as there is only one panel every time we plot.
 
 Now make the plots
 
@@ -257,5 +258,7 @@ wrap_plots(nested_tmp$plots)+ #gather all the plots
 ```
 
 And as you can see, now the area with the most shots per team is highlighted. It took some extra step, but it was worth it.
+
+Maybe the two different ways to make this plot is a bit redundant, but I learned some stuff making it both ways so just wanted to share. 
 
 If you have any questions or want to see a tutorial about a viz you saw online, [send me a message on Twitter.]("https://www.twitter.com/RobinWilhelmus) And tag me if you make one in your own style and post it to Twitter!

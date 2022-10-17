@@ -3,16 +3,11 @@ title: "Passing"
 format:
   html:
     theme: cosmo
----
-
----
-format:
-  html:
-    #theme: cosmo
     toc: false
 page-layout: full
 title-block-banner: false
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```

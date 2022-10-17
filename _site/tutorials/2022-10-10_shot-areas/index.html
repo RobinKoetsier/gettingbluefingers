@@ -164,7 +164,7 @@ ga('send', {
     <div class="sidebar-title mb-0 py-0">
       <a href="../../">Getting Blue Fingers</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://open.spotify.com/show/6cSujEBBISBaUUc5POnjtx" title="This site..." class="sidebar-tool px-1"><i class="bi bi-spotify"></i></a>
+    <a href="https://open.spotify.com/show/6cSujEBBISBaUUc5POnjtx" title="Tussen de linies podcast" class="sidebar-tool px-1"><i class="bi bi-spotify"></i></a>
     <a href="https://github.com/robinkoetsier" title="My Github" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
     <a href="https://twitter.com/RobinWilhelmus" title="Personal Twitter" class="sidebar-tool px-1"><i class="bi bi-twitter"></i></a>
     <a href="https://twitter.com/EredivisiePlots" title="Eredivisieplots Twitter" class="sidebar-tool px-1"><i class="bi bi-bar-chart-line"></i></a>
@@ -209,12 +209,12 @@ ga('send', {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Shots.html" class="sidebar-item-text sidebar-link">Shots</a>
+  <a href="../../Shots.html" class="sidebar-item-text sidebar-link">Shooting</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../passes.html" class="sidebar-item-text sidebar-link">Passes</a>
+  <a href="../../passes.html" class="sidebar-item-text sidebar-link">Passing</a>
   </div>
 </li>
       </ul>
@@ -336,7 +336,7 @@ ga('send', {
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">label=</span><span class="fu">paste0</span>((<span class="dv">100</span><span class="sc">*</span>(<span class="fu">round</span>((..count..)<span class="sc">/</span><span class="fu">tapply</span>(..count..,..PANEL..,sum)[..PANEL..],<span class="dv">2</span>))),<span class="st">"%"</span>)),</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, (<span class="fl">0.6367725</span><span class="sc">/</span><span class="dv">3</span>)))<span class="sc">+</span></span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>team_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="auto" width="auto" class="imageContainer"></a></center>
+<center><a href="img/1-1.png" target="_blank"><img src="img/1-1.png" height="150" width="auto" class="imageContainer"></a></center>
 <p>When saved in the right ratio, it already looks okay(ish).</p>
 <p>The next step is to make is look way better than it does.</p>
 </section>
@@ -401,12 +401,12 @@ ga('send', {
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">drop=</span><span class="cn">FALSE</span>)<span class="sc">+</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_bin_2d</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">size=</span><span class="dv">3</span>,<span class="at">colour=</span><span class="st">"white"</span>,</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label=</span><span class="fu">paste0</span>((<span class="dv">100</span><span class="sc">*</span>(<span class="fu">round</span>((..count..)<span class="sc">/</span><span class="fu">tapply</span>(..count..,..PANEL..,sum)[..PANEL..],<span class="dv">2</span>))),<span class="st">"%"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label=</span><span class="fu">paste0</span>((<span class="dv">100</span><span class="sc">*</span>(<span class="fu">round</span>(..count..<span class="sc">/</span><span class="fu">sum</span>(..count..),<span class="dv">2</span>))),<span class="st">"%"</span>)</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                  </span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                ), </span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                </span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">binwidth =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, (<span class="fl">0.6367725</span><span class="sc">/</span><span class="dv">3</span>)))<span class="sc">+</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#facet_wrap(~team_name)+</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span>,<span class="at">xend=</span><span class="dv">0</span>,<span class="at">y=</span><span class="dv">0</span>,<span class="at">yend=</span><span class="fl">0.66534392-0.028571429</span>),<span class="at">colour=</span><span class="st">"white"</span>)<span class="sc">+</span> <span class="co">#drawing a goal</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">0</span><span class="fl">-0.028571429</span>,<span class="at">xend=</span><span class="dv">0</span><span class="fl">-0.028571429</span>,<span class="at">y=</span><span class="dv">0</span>,<span class="at">yend=</span><span class="fl">0.66534392</span>),<span class="at">colour=</span><span class="st">"white"</span>)<span class="sc">+</span> </span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">2</span>,<span class="at">xend=</span><span class="dv">2</span>,<span class="at">y=</span><span class="dv">0</span>,<span class="at">yend=</span><span class="fl">0.66534392-0.028571429</span>),<span class="at">colour=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
@@ -431,7 +431,7 @@ ga('send', {
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Spartan-Bold"</span>, <span class="at">colour=</span><span class="st">"#69C5D2"</span>,<span class="at">size=</span><span class="dv">4</span>),</span>
 <span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Spartan-Light"</span>, <span class="at">colour=</span><span class="st">"#69C5D2"</span>,<span class="at">size=</span><span class="dv">3</span>))</span>
 <span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>So in the title of the plot, I put the team name with <code>glue::glue()</code>. You may have to install this package. Of course you can add more stuff to the plot, like the team loge or the number of shots. Go wild!</p>
+<p>So in the title of the plot, I put the team name with <code>glue::glue()</code>. You may have to install this package. Of course you can add more stuff to the plot, like the team logo or the number of shots. Go wild! I changed the label in <code>stat_bin_2d</code> as well, as we don’t have to calculate the percentages per panel as there is only one panel every time we plot.</p>
 <p>Now make the plots</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>nested_tmp <span class="ot">&lt;-</span> shots_df <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(team_name) <span class="sc">%&gt;%</span> </span>
@@ -453,6 +453,7 @@ ga('send', {
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Spartan-Light"</span>, <span class="at">colour=</span><span class="st">"#69C5D2"</span>,<span class="at">size=</span><span class="dv">10</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <center><a href="img/3.png" target="_blank"><img src="img/3.png" height="300" width="600" class="imageContainer"></a></center>
 <p>And as you can see, now the area with the most shots per team is highlighted. It took some extra step, but it was worth it.</p>
+<p>Maybe the two different ways to make this plot is a bit redundant, but I learned some stuff making it both ways so just wanted to share.</p>
 <p>If you have any questions or want to see a tutorial about a viz you saw online, <a href="%22https://www.twitter.com/RobinWilhelmus">send me a message on Twitter.</a> And tag me if you make one in your own style and post it to Twitter!</p>
 
 
@@ -681,6 +682,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 });
+</script>
+<script src="https://utteranc.es/client.js" repo="RobinKoetsier/site_comments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
 

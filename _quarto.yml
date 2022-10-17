@@ -1,12 +1,11 @@
 project:
   type: website
-  
-  #output-dir: docs
 execute:
-  freeze: true
+  freeze: auto
 website:
   google-analytics: "UA-175572271-3"
-  #twitter-card: true
+  cookie-consent: true
+  twitter-card: true
   favicon: images/favicon.ico
   title: "Getting Blue Fingers"
   page-navigation: true
@@ -15,15 +14,10 @@ website:
   repo-url: https://github.com/robinkoetsier
   #repo-actions: [edit, issue]
   sidebar:
-    
-    #logo: "images/Boca.jpg"
-    #logo: "images/Bocahex.png"
-    #logo-alt: "Me at Boca"
     tools: 
-      
       - icon: spotify
         href: https://open.spotify.com/show/6cSujEBBISBaUUc5POnjtx
-        text: "This site..."
+        text: "Tussen de linies podcast"
       - icon: github
         href: https://github.com/robinkoetsier
         text: "My Github"
@@ -49,7 +43,7 @@ website:
       - section: "Eredivisie stats"  
         contents: 
         - text: "xRank"
-          href: rank.Rmd
+          href: rank.Qmd
         - text: "Shooting"
           href: Shots.Qmd
         - text: "Passing"
@@ -61,13 +55,12 @@ website:
         href: https://twitter.com
 format: 
   html:
-    
     theme:
       light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
       #dark: [cosmo, theme-dark.scss]
       dark: solar
-    code-copy: true
-    code-overflow: wrap
+    
+    code-overflow: scroll
     toc: false
     #mainfont: Roboto
     #sansfont: Roboto
