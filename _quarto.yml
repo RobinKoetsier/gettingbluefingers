@@ -48,6 +48,14 @@ website:
           href: Shots.Qmd
         - text: "Passing"
           href: passes.Qmd
+      - section: "KKD stats"  
+        contents: 
+        - text: "xRank"
+          href: rankKKD.Qmd
+        - text: "Shooting"
+          href: ShotsKKD.Qmd
+        - text: "Passing"
+          href: passesKKD.Qmd
       - about.qmd
       - icon: github
         href: https://github.com/

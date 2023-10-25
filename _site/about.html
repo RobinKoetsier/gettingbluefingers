@@ -29,8 +29,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./passes.html" rel="prev">
+<link href="./passesKKD.html" rel="prev">
 <link href="./images/favicon.ico" rel="icon">
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="tracking">
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -75,7 +77,29 @@ ga('send', {
 });
 </script>
 
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  });
+});
+</script> 
+  
 
+
+<meta name="twitter:title" content="Getting Blue Fingers - About me">
+<meta name="twitter:description" content="My name is Robin Koetsier. I’m currently a data engineer at Fugro Netherlands through Alten. In my free time I like to write or talk about football.">
+<meta name="twitter:image" content="https://www.gettingbluefingers.com/images/bocahex.png">
+<meta name="twitter:image-height" content="360">
+<meta name="twitter:image-width" content="312">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating fullcontent">
@@ -154,6 +178,31 @@ ga('send', {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">KKD stats</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rankKKD.html" class="sidebar-item-text sidebar-link">xRank</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ShotsKKD.html" class="sidebar-item-text sidebar-link">Shooting</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./passesKKD.html" class="sidebar-item-text sidebar-link">Passing</a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./about.html" class="sidebar-item-text sidebar-link active">About me</a>
@@ -175,11 +224,11 @@ ga('send', {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>My name is Robin Koetsier. I’m currently a data engineer at Fugro Netherlands through Alten. I my free time I like to write or talk about football. In the menu you can find the podcasts and articles from ‘Tussen de linies’. Under ‘Posts’ you can see the few posts I wrote for this site and I also made a tutorial to create a Pizza Chart in R.</p>
+<p>My name is Robin Koetsier. I’m currently a data engineer at Fugro Netherlands through Alten. In my free time I like to write or talk about football. In the menu you can find the podcasts and articles from ‘Tussen de linies’. Under ‘Posts’ you can see the few posts I wrote for this site and I also made some tutorials.</p>
 <p>I do most of my visualisations in R and sometimes in Python. I you have any questions or need some help with these languages, shoot me a message on Twitter.</p>
 <p>The Eredivisie stats are made with event data. The xG model I made myself using XGBoost in R. My twitterbot <span class="citation" data-cites="Eredivisieplots">@Eredivisieplots</span> is running on a Raspberry Pi 3 and uses Python and R to get the data and make the dashboard.</p>
 <p>I also made a <a href="%22https://public.tableau.com/app/profile/robin.koetsier/viz/SpelersAlles/Dashboard1?publish=yes%22">dashboard in Tableau</a> a few season ago to visualize the birth places of player in the Eredivisie and the KKD.</p>
-<p>Those are my skill that are relevant skill for my site.</p>
+<p>Those are my skills that are relevant skill for my site.</p>
 
 
 </main> 
@@ -406,7 +455,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./passes.html" class="pagination-link">
+      <a href="./passesKKD.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Passing</span>
       </a>          
   </div>
@@ -414,6 +463,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+  </div>
+</footer>
 
 
 

@@ -92,9 +92,11 @@ group_column <- function(class = NULL, ...) {
 ```
 
 ```{r table2, out.width='100%',echo=FALSE, message=FALSE, warning=FALSE}
-players <- readxl::read_excel("Export_TDL_NED_2223.xlsx", 
+players <- readxl::read_excel("Export_TDL_NED_2324.xlsx", 
                            sheet = "Player xG") %>%
   select(name,playername,Minutes_played, Goals, NP_Goals, xG, NPxG, xG.90, NPxG.90, NP_Shots) 
+players[is.na(players)] <- 0
+
 format_pct <- function(value) {
   if (value == 0) "  \u2013 "    # en dash for 0%
   else if (value == 1) "\u2713"  # checkmark for 100%
@@ -128,7 +130,7 @@ tbl <- reactable(players,
                 ),
                 Minutes_played = colDef(
                  name = "Minutes",
-                 maxWidth = 70,
+                 maxWidth = 72,
                  format = colFormat(digits = 0),
                  style = function(value) {
                    normalized <- (value - min(players$Minutes_played)) / (max(players$Minutes_played) - min(players$Minutes_played))
@@ -172,7 +174,7 @@ tbl <- reactable(players,
                     list(background = color)
                   }),
                 xG.90 = colDef(
-                  name = "xG/90",
+                  name = " xG/90",
                   maxWidth = 55,
                   style = function(value) {
                     normalized <- (value - min(players$xG.90)) / (max(players$xG.90) - min(players$xG.90))
@@ -205,7 +207,7 @@ tbl <- reactable(players,
 
 div(class = "standings",
   div(class = "title",
-    h2("Shots and xG Eredivisie 2022/2023"),
+    h2("Shots and xG Eredivisie 2023/2024"),
     "Table sorted on NP-Goals and NPxG"
   ),
   tbl

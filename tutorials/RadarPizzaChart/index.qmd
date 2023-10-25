@@ -11,6 +11,8 @@ date: "2021-04-27"
 
 ### Intro
 
+Disclaimer: rotating the axis labels was never fully supported and is broken in newer versions of tidyvers/ggplot. Remove that line if you get an error.
+
 As I really like the radars/pizza charts from football slices (RIP) and the mplsoccer package for Python, I was thinking about making them in R with the help of the [worldfootballR package.](https://github.com/JaseZiv/worldfootballR) When some people contacted me with the question if I knew how to do it, I decided to make a tutorial for it. If you don't know what I'm talking about, this is the radar from mplsoccer. 
 
 <p align="center">
@@ -39,6 +41,7 @@ Next we are going to pick a player in which we are interested, as long as it's f
 As mentioned before, worldfootballR has a function to scrape the scouting report.
 
 Note: the function was updated to scrape the WHOLE scouting report. So selecting your rows need some more thought. Besides that, it also have a column called 'StatsGroup' so you can use this to colour your chart.
+Besides that, FBref switched to OPTA, so the names of the stats will be different!
 
 ```{.r}
 df <- fb_player_scouting_report("https://fbref.com/en/players/282679b4/Mateusz-Klich")
@@ -49,10 +52,11 @@ For some players you need to add
 ```{.r}
 pos_versus = "primary"
 ```
-inside the function as the player played multiple positions.
+inside the function as the player played multiple positions, like this:
+```{.r}
+df <- fb_player_scouting_report("https://fbref.com/en/players/282679b4/Mateusz-Klich", pos_versus = "primary")
 
-
-{::options parse_block_html="true" /}
+```
 
 <details><summary markdown="span">Using other data</summary>
   
@@ -91,7 +95,6 @@ You can change the stat column to your liking, but you have to change the scale_
 
   </details>
 
-{::options parse_block_html="false" /}
 
 ---
 
@@ -302,7 +305,7 @@ Some examples, with some well known styles included. Just a head start to create
 </p>
 
 
-{::options parse_block_html="true" /}
+
 
 <details><summary markdown="span">The code</summary>
   
@@ -348,7 +351,7 @@ ggplot(df_selected,aes(fct_reorder(Statistic,stat),Percentile)) +
 </details>
 <br/>
 
-{::options parse_block_html="false" /}
+
 
 #### Football Slices
 

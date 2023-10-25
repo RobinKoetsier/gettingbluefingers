@@ -28,14 +28,14 @@ library(dataui)
 library(knitr)
 knit_hooks$set(optipng = hook_optipng)
 
-df1 <- readxl::read_excel("Export_TDL_NED_2223.xlsx", 
+df1 <- readxl::read_excel("Export_TDL_NED_2324.xlsx", 
                    sheet = "Wedstrijden") %>%
   group_by(HomeName) %>% mutate(Team = HomeName,
                                    xG_diff = Home_xG - Away_xG) %>%
   ungroup() %>%
   select(date,Team, xG_diff)
 
-df2 <- readxl::read_excel("Export_TDL_NED_2223.xlsx", 
+df2 <- readxl::read_excel("Export_TDL_NED_2324.xlsx", 
                    sheet = "Wedstrijden") %>%
   group_by(AwayName) %>% mutate(Team = AwayName,
                                    xG_diff = Away_xG - Home_xG) %>%
@@ -129,7 +129,7 @@ group_column <- function(class = NULL, ...) {
   colDef(cell = format_pct, maxWidth = 70, align = "center", class = paste("cell number", class), ...)
 }
 
-xRank <- readxl::read_excel("Export_TDL_NED_2223.xlsx", 
+xRank <- readxl::read_excel("Export_TDL_NED_2324.xlsx", 
                   sheet = "Stand")# %>% 
 #  mutate(Form = NA)
 
@@ -242,11 +242,13 @@ tbl <-   reactable(
 
 div(class = "standings",
   div(class = "title",
-    h2("Expected Points Eredivisie 2022/2023"),
+    h2("Expected Points Eredivisie 2023/2024"),
     "League table sorted on xPoints"
   ),
   tbl,
-  "Based on simulating every shot in every match"
+  "Based on simulating every shot in every match",
+           h5("Last update: "),
+  Sys.Date()
 )
 
 ```

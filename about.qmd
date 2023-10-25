@@ -16,7 +16,7 @@ about:
 
 ---
 
-My name is Robin Koetsier. I'm currently a data engineer at Fugro Netherlands through Alten. I my free time I like to write or talk about football. In the menu you can find the podcasts and articles from 'Tussen de linies'. Under 'Posts' you can see the few posts I wrote for this site and I also made a tutorial to create a Pizza Chart in R.
+My name is Robin Koetsier. I'm currently a data engineer at Fugro Netherlands through Alten. In my free time I like to write or talk about football. In the menu you can find the podcasts and articles from 'Tussen de linies'. Under 'Posts' you can see the few posts I wrote for this site and I also made some tutorials.
 
 I do most of my visualisations in R and sometimes in Python. I you have any questions or need some help with these languages, shoot me a message on Twitter. 
 
@@ -24,4 +24,4 @@ The Eredivisie stats are made with event data. The xG model I made myself using 
 
 I also made a [dashboard in Tableau]("https://public.tableau.com/app/profile/robin.koetsier/viz/SpelersAlles/Dashboard1?publish=yes") a few season ago to visualize the birth places of player in the Eredivisie and the KKD.
 
-Those are my skill that are relevant skill for my site. 
+Those are my skills that are relevant skill for my site. 

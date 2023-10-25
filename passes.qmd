@@ -6,6 +6,7 @@ format:
     toc: false
 page-layout: full
 title-block-banner: false
+freeze: false
 ---
 
 ```{r setup, include=FALSE}
@@ -92,11 +93,11 @@ group_column <- function(class = NULL, ...) {
 ```
 
 ```{r table2, out.width='100%',echo=FALSE, message=FALSE, warning=FALSE}
-players_two <- readxl::read_excel("Export_TDL_NED_2223.xlsx", 
+players_two <- readxl::read_excel("Export_TDL_NED_2324.xlsx", 
                               sheet = "Player xG") %>%
   select(name,playername,Minutes_played,Assists,xG_assisted,xA.90,Shots_assisted, xThreat,xThreat.90)%>%
   arrange(-Assists)
-
+players_two[is.na(players_two)] <- 0
 tbl <-  reactable(players_two,
               width = 700,
               searchable = TRUE,
@@ -188,7 +189,7 @@ tbl <-  reactable(players_two,
 
 div(class = "standings",
   div(class = "title",
-    h2("Assists, xT and xA Eredivisie 2022/2023"),
+    h2("Assists, xT and xA Eredivisie 2023/2024"),
     "Table sorted on Assists and xA"
   ),
   tbl
