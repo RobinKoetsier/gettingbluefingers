@@ -253,7 +253,12 @@ div(class = "standings",
 
 ```
 
-<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'X8X05VG5Z');kofiwidget2.draw();</script> 
+```{=html}
+<a href='Export_TDL_KKD_2324.xlsx' target="_blank">Download file</a>
+
+```
+<br>
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy me a beer or coffee!', '#29abe0', 'X8X05VG5Z');kofiwidget2.draw();</script> 
 
 ------------------------------------------------------------------------
 
