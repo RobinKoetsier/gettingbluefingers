@@ -67,6 +67,9 @@ jobs:
       
       - name: Install readxl
         run: Rscript -e "install.packages('readxl', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+      
+      - name: Install zoo
+        run: Rscript -e "install.packages('zoo', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
 
 
           
