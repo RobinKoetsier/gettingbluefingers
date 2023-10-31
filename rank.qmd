@@ -24,7 +24,7 @@ library(tibble)
 library(forcats)
 library(tidyverse)
 library(sparkline)
-library(dataui)
+#library(dataui)
 library(knitr)
 knit_hooks$set(optipng = hook_optipng)
 
