@@ -43,7 +43,33 @@ jobs:
 
       - name: Install reactable
         run: Rscript -e "install.packages('reactable', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
-         
+        
+      - name: Install htmltools
+        run: Rscript -e "install.packages('htmltools', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install tibble
+        run: Rscript -e "install.packages('tibble', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install forcats
+        run: Rscript -e "install.packages('forcats', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install tidyverse
+        run: Rscript -e "install.packages('tidyverse', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install sparkline
+        run: Rscript -e "install.packages('sparkline', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install dataui
+        run: Rscript -e "install.packages('dataui', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install knitr
+        run: Rscript -e "install.packages('knitr', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+      
+      - name: Install readxl
+        run: Rscript -e "install.packages('readxl', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+
+          
       # From https://github.com/julia-actions/setup-julia
       # - name: Setup Julia
       #   uses: julia-actions/setup-julia@v1
