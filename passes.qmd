@@ -21,7 +21,6 @@ library(tibble)
 library(forcats)
 library(tidyverse)
 library(sparkline)
-library(dataui)
 library(knitr)
 orange_pal <- function(x){
   rgb(colorRamp(c("green","white", "red"))(x), maxColorValue = 255)}
