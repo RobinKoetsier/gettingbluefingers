@@ -40,7 +40,10 @@ jobs:
         
       - name: Install Downloadthis
         run: Rscript -e "install.packages('downloadthis', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
-        
+
+      - name: Install reactable
+        run: Rscript -e "install.packages('reactable', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+         
       # From https://github.com/julia-actions/setup-julia
       # - name: Setup Julia
       #   uses: julia-actions/setup-julia@v1
