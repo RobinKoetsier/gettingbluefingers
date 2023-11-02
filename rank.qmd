@@ -167,7 +167,7 @@ tbl <-   reactable(
         Logo = colDef(minWidth = 40,
                       name = "",
                       cell = function(value) {
-                        img_src <- knitr::image_uri(sprintf("~/Documents/ScraperWhoScored/TDLXG/Clubs/%s.png", value))
+                        img_src <- knitr::image_uri(sprintf("resized/%s.png", value))
                         image <- img(src = img_src, height = "22px", alt = value)
                         tagList(
                           div(style = list(display = "inline-block", width = "40px"), image)

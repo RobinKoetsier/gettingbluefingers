@@ -91,7 +91,7 @@ group_column <- function(class = NULL, ...) {
 ```
 
 ```{r table2, out.width='100%',echo=FALSE, message=FALSE, warning=FALSE}
-players <- readxl::read_excel("Export_TDL_NED_2223-feb.xlsx", 
+players <- readxl::read_excel("Export_TDL_NED_2324-feb.xlsx", 
                            sheet = "Player xG") %>%
   select(name,playername,Minutes_played, Goals, NP_Goals, xG, NPxG, xG.90, NPxG.90, NP_Shots) 
 players[is.na(players)] <- 0
