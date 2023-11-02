@@ -76,6 +76,9 @@ jobs:
 
       - name: Install reactablefmtr
         run: Rscript -e "install.packages('reactablefmtr', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+      
+      - name: Install reshape2
+        run: Rscript -e "install.packages('reshape2', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
 
 
           
