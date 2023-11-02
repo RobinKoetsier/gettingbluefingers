@@ -70,6 +70,12 @@ jobs:
       
       - name: Install zoo
         run: Rscript -e "install.packages('zoo', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+      
+      - name: Install plotly
+        run: Rscript -e "install.packages('plotly', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
+
+      - name: Install reactablefmtr
+        run: Rscript -e "install.packages('reactablefmtr', repos='https://packagemanager.posit.co/cran/__linux__/jammy/latest')"
 
 
           
