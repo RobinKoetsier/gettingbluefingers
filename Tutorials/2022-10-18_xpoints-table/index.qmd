@@ -9,7 +9,7 @@ format:
     code-link: true
     freeze: true
 execute:
-  cache: true
+  cache: false
 date: 2022-10-18
 description: "Calculate the expected points yourself with the worldfootballR package"
 image: "img/0.png"
