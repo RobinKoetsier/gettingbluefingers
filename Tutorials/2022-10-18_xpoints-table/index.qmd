@@ -21,7 +21,7 @@ Now that expected goals get more common and accepted, more people are realising 
 ### LOADING THE PACKAGES
 
 Make sure you have the newest version of <code>worldfootballR</code>.
-```{r}
+```{r, eval=FALSE}
 #| output: false
 # devtools::install_github("JaseZiv/worldfootballR")
 library(tidyverse)
@@ -32,7 +32,7 @@ library(worldfootballR)
 
 As we are simulating every shot in every match multiple times, we need to load all the shots from the competition we want to use. 
 
-```{r}
+```{r, eval=FALSE}
 #get match id's
 league_matches <- fotmob_get_league_matches(
   country =     "ENG",
@@ -48,7 +48,7 @@ match_details <- fotmob_get_match_details(league_matches$id)
 ```
 
 
-```{r}
+```{r, eval=FALSE}
 # unnest the shots only needed in older versions of worldfootballR so commented it out) 
 # and add team name of team shooting and team conceding (
 shots_temp <- match_details %>%
@@ -62,7 +62,7 @@ shots_temp <- match_details %>%
 
 If you want all the leagues and their id's/names/countries, read the csv from github
 
-```{r}
+```{r, eval=FALSE}
 leagues <- read.csv("https://raw.githubusercontent.com/JaseZiv/worldfootballR_data/master/raw-data/fotmob-leagues/all_leagues.csv")
 head(leagues)
 ```
@@ -85,7 +85,7 @@ ere_team_xg_2022 <- fotmob_get_season_stats(
 ```
 </details>
 
-```{r}
+```{r, eval=FALSE}
 xG_table <- shots_temp %>%
   mutate(expected_goals = replace_na(expected_goals,0)) %>% #replace the NA for own goals to 0
   group_by(team_name) %>%
@@ -107,7 +107,7 @@ So first we make the function to simulate all the shots. It is an old function o
 
 <details>
 <summary>the functions </summary>
-```{r}
+```{r, eval=FALSE}
 #| output: false
 
 # main function
@@ -191,7 +191,7 @@ calculateWinner <- function(home,away){
 
 To use this function on the data frame of all the shots we are going to wrap it in a function so we can use it easier. The <code>10000</code> is the times we simulate every match. You can put it higher, but you'll have to wait longer for the results.
 
-```{r}
+```{r, eval=FALSE}
 plot_func <- function(df){
   calculateChance(pull(df %>% filter(team_id == home_team_id),expected_goals),
                                       pull(df %>% filter(team_id == away_team_id),expected_goals),
@@ -201,7 +201,7 @@ plot_func <- function(df){
 
 And than just use it.
 
-```{r}
+```{r, eval=FALSE}
 df <- shots_temp %>%
   group_by(match_id) %>%
   nest() %>%
@@ -213,7 +213,7 @@ head(df)
 
 Let's join this with the data frame which contains the matches and teams
 
-```{r}
+```{r, eval=FALSE}
 total_df <- df %>%
   select(match_id,homeP,awayP) %>%
   left_join(match_details %>% 
@@ -248,7 +248,7 @@ table <- fotmob_get_league_tables(
 
 I dove in the code to find the place where the table should be and found it, so you can copy the code beneath.
 
-```{r}
+```{r, eval=FALSE}
 safely_from_json <- purrr::safely(jsonlite::fromJSON, otherwise = NULL, quiet = TRUE)
 jsonn <- safely_from_json("https://www.fotmob.com/api/leagues?id=48") 
 table <- data.frame(jsonn$result$table$data$table$all)
@@ -260,7 +260,7 @@ Note the <code>id=48</code> part at the end of the url. Change that to the desir
 
 Now we "just" have to join these three data frames together. We select the id column as well, as it makes it easy to add the club logo.
 
-```{r}
+```{r, eval=FALSE}
 xptable <- table %>%
   left_join(xpoints, by=c("name" = "home_team")) %>%
   separate(scoresStr, c("GF", "GA"),"-") %>%
@@ -277,7 +277,7 @@ xptable <- table %>%
 ```
 Let's arrange the table in the desired output.
 
-```{r}
+```{r, eval=FALSE}
 xptable <- xptable %>%
   select(idx,id,name,played,wins,draws,losses,GF,GA,GD,pts,xGF,xGA,xGD,xPoints,xRank) %>%
   `colnames<-`(c("RANK","id", "TEAM", "P","W","D","L","GF","GA","GD","PTS","xGF","xGA","xGD","xPTS","xRANK"))
@@ -285,7 +285,7 @@ xptable <- xptable %>%
 
 The club logo's can be found at the following url: <code>https://images.fotmob.com/image_resources/logo/teamlogo/{id}.png</code>. So we can change the column that has the id's so that it will contain the url to the logo. This will make it super easy to add the logo to the table. 
 
-```{r}
+```{r, eval=FALSE}
 xptable <- xptable %>%
   mutate(id = glue::glue("https://images.fotmob.com/image_resources/logo/teamlogo/{id}.png"))
 ```
@@ -296,7 +296,7 @@ The best way about this is that now the whole code is fool proof for every compe
 
 I use <code>{reactable}</code> for the table on my site, as it is interactive. For this tutorial I'm using <code>{gt}</code> and <code>{gtExtras}</code> as those packages work great for static tables on websites. Just use the package you like the most. [Here you can find the documentation on <code>{gt}</code> and a lot of other packages to make tables.](https://gt.rstudio.com/) Just pick the one you like the most. <code>{gt}</code> let's you use HTML and [I copied some code from the creator.](https://themockup.blog/posts/2020-10-31-embedding-custom-features-in-gt-tables/#more-custom-html-work) 
 
-```{r}
+```{r, eval=FALSE}
 library(gt)
 
 add_rank_color <- function(col1,col2){
@@ -332,7 +332,7 @@ As I keep it simple/lazy, I just want to copy [my xRank table]("https://www.gett
 
 So the above function colours the 'RANK' and 'xRANK' column according to which of the two is better/worse. This is so that I can use it in the code below that creates the table. The function has some css in there as well. 
 
-```{r}
+```{r, eval=FALSE}
 library(gtExtras)
 xptable %>%
   mutate(
